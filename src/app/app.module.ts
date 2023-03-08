@@ -25,6 +25,12 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { DiaglogEditAddressComponent } from './diaglog-edit-address/diaglog-edit-address.component';
+import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +38,9 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
     DashboardComponent,
     UserComponent,
     DialogAddUserComponent,
+    UserDetailComponent,
+    DiaglogEditAddressComponent,
+    DialogEditUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +58,11 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
     MatNativeDateModule,
     FormsModule,
     BrowserModule,
+    MatProgressBarModule,
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
+    MatCardModule,
+    MatMenuModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
