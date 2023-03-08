@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularFireModule } from '@angular/fire/compat';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { environment } from 'src/environments/environment';
 
 import { DiaglogEditAddressComponent } from './diaglog-edit-address.component';
 
@@ -8,9 +11,17 @@ describe('DiaglogEditAddressComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DiaglogEditAddressComponent ]
-    })
-    .compileComponents();
+      imports: [AngularFireModule.initializeApp(environment.firebase),
+      , AngularFireModule],
+      declarations: [DiaglogEditAddressComponent],
+      providers: [
+        MatDialogModule,
+        {
+          provide: MatDialogRef,
+          useValue: {},
+        },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DiaglogEditAddressComponent);
     component = fixture.componentInstance;
